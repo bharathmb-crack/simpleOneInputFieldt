@@ -20,38 +20,30 @@ function onlyNumbers(evt) {
 function showOtherNumbers() {
   var inputNumber = document.getElementById("ipt");
   if (inputNumber.length == 0) {
-    firstChar.innerText = "";
-    secondChar.innerText = "";
-    thirdChar.innerText = "";
-    errorMessage.innerText = "";
-    return false;
-  }
-  if (inputNumber.length == "") {
-    firstChar.innerText = "";
-    secondChar.innerText = "";
-    thirdChar.innerText = "";
-    errorMessage.innerText = "";
-    return false;
-  }
-  if (inputNumber.value < 0) {
-    firstChar.innerText = "";
-    secondChar.innerText = "";
-    thirdChar.innerText = "";
-    errorMessage.innerHTML = "Enter only postive Integer";
     return false;
   }
   if (inputNumber.length !== 0) {
-    mainValue = Number(inputNumber.value) + 2;
-    secondValue = mainValue + 2;
-    thirdValue = secondValue + 2;
-    firstChar.innerHTML = mainValue;
-    secondChar.innerHTML = secondValue;
-    thirdChar.innerHTML = thirdValue;
-    errorMessage.innerText = "";
-    return false;
+    if (inputNumber.value < 0) {
+      firstChar.innerText = "";
+      secondChar.innerText = "";
+      thirdChar.innerText = "";
+      errorMessage.innerHTML = "Enter only postive Integer";
+    } else if (inputNumber.value > 0) {
+      mainValue = Number(inputNumber.value) + 2;
+      secondValue = mainValue + 2;
+      thirdValue = secondValue + 2;
+      firstChar.innerHTML = mainValue;
+      secondChar.innerHTML = secondValue;
+      thirdChar.innerHTML = thirdValue;
+      errorMessage.innerHTML = "";
+    } else {
+      mainValue = " ";
+      secondValue = " ";
+      thirdValue = " ";
+      firstChar.innerHTML = mainValue;
+      secondChar.innerHTML = secondValue;
+      thirdChar.innerHTML = thirdValue;
+      errorMessage.innerHTML = "";
+    }
   }
-  secondChar.innerText = "";
-  thirdChar.innerText = "";
-  errorMessage.innerText = "";
-  return true;
 }
